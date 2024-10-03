@@ -2,17 +2,22 @@
  *
  * Created by: Ali Elouasbi
  * Created on: Oct 2024
- * This program plays a Cookie Clicker game
+ * This program turns an LED on a breadboard on and off
 */
 
+// setup
 basic.clearScreen()
+pins.digitalWritePin(DigitalPin.P16, 0)
 basic.showIcon(IconNames.Happy)
-let nombre = 1
+
+// turn on LED
 input.onButtonPressed(Button.A, function () {
- basic.showNumber(nombre)
- nombre = nombre + 1
- })
+    basic.showIcon(IconNames.Yes)
+    pins.digitalWritePin(DigitalPin.P16, 1)
+})
+
+// turn off LED
 input.onButtonPressed(Button.B, function () {
-    basic.showNumber(0)
-    nombre = 1
+    basic.showIcon(IconNames.No)
+    pins.digitalWritePin(DigitalPin.P16, 0)
 })
